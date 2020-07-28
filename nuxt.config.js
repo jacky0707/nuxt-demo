@@ -1,5 +1,12 @@
 import colors from 'vuetify/es5/util/colors'
-
+const routerBase =
+  process.env.DEPLOY_ENV === 'GH_PAGES'
+    ? {
+        router: {
+          base: '/nuxt-demo/'
+        }
+      }
+    : {}
 export default {
   /*
   ** Nuxt rendering mode
@@ -11,9 +18,7 @@ export default {
   ** See https://nuxtjs.org/api/configuration-target
   */
   target: 'static',
-  router: {
-    base: '/nuxt-demo/'
-  },
+  ...routerBase,
   /*
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head
