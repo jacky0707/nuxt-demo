@@ -10,7 +10,10 @@ export default {
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target
   */
-  target: 'server',
+  target: 'static',
+  router: {
+    base: '/nuxt-demo/'
+  },
   /*
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head
@@ -53,7 +56,15 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    'nuxt-graphql-request'
   ],
+
+  graphql:{
+    endpoint: 'https://graphql-pokemon.now.sh/',
+    options: {
+      mode: 'cors',
+    },
+  },
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
@@ -61,7 +72,7 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      // dark: true,
       themes: {
         dark: {
           primary: colors.blue.darken2,
